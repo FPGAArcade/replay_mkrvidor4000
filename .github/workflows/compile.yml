@@ -1,0 +1,36 @@
+name: Compile
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: arduino/compile-sketches@v1
+        with:
+          fqbn: 'arduino:samd:mkrvidor4000'
+          enable-deltas-report: true
+      - uses: actions/upload-artifact@v2
+        with:
+          name: sketches-reports
+          path: sketches-reports
+
+  report:
+    needs: build
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download sketches reports artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: sketches-reports
+          path: sketches-reports
+
+      - uses: arduino/report-size-deltas@v1
+        with:
+          sketches-reports-source: sketches-reports
