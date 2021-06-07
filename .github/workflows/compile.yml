@@ -15,6 +15,7 @@ jobs:
         with:
           fqbn: 'arduino:samd:mkrvidor4000'
           enable-deltas-report: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v2
         with:
           name: sketches-reports
