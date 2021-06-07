@@ -66,6 +66,26 @@ More cores can be found here : https://build.fpgaarcade.com/releases/cores/V4/
 
 This repository only contains the pre-built library; the actual source code lives in the [main source repository](https://github.com/FPGAArcade/replay_firmware).
 
+### What's the MKR Pin Usage
+
+| Usage                   | MKR (right) | MKR (right) | Usage                   |
+|:------------------------|------------:|:------------|:------------------------|
+| (not used)              | `AREF`      | `+5V`       |                         |
+| (CTRL0) File I/O CS     | `A0/D15`    | `VIN`       |                         |
+| (CTRL1) OSD CS          | `A1/D16`    | `+3V3`      |                         |
+| NINA Reset              | `A2/D17`    | `GND`       |                         |
+| NINA CS                 | `A3/D18`    | `RESET`     |                         |
+| FPGA I2S DIN            | `A4/D19`    | `D14`       | ARM Serial RX (debug)   |
+| FPGA I2S BCLK           | `A5/D20`    | `D13`       | ARM Serial TX (debug)   |
+| FPGA I2S LRCIN          | `A6/D21`    | `D12`       | I2C SCL                 |
+| NINA Serial TX / BT HCI | `D0`        | `D11`       | I2C SDA                 |
+| NINA Serial RX / BT HCI | `D1`        | `D10`       | SPI MISO                |
+| (CONF_DIN) Read-Direct  | `D2`        | `D9`        | SPI CLK                 |
+| (not used)              | `D3`        | `D8`        | SPI MOSI                |
+| SDCARD CS               | `D4`        | `D7`        | NINA Ready / Serial RTS |
+| EEPROM CS               | `D5`        | `D6`        | NINA GPIO0 / Serial CTS |
+
+
 
 [mkrvidor4000]: https://store-cdn.arduino.cc/uni/catalog/product/cache/1/image/500x375/f8876a31b63532bbba4e781c30024a0a/a/b/abx00022_iso_3.jpg  "ARDUINO MKR VIDOR 4000"
 [no_sdcard]: www/no_sdcard.jpg
