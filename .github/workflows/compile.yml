@@ -35,3 +35,11 @@ jobs:
       - uses: arduino/report-size-deltas@v1
         with:
           sketches-reports-source: sketches-reports
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: arduino/arduino-lint-action@v1
+        with:
+          library-manager: submit
+          compliance: specification
