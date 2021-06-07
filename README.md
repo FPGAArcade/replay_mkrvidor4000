@@ -28,13 +28,13 @@ Please consult [the Arduino documentation](https://www.arduino.cc/en/guide/libra
 
 ### How to flash the Vidor
 
-In the Arduino IDE, open up the example `Replay_Boot` (listed under menu `File` -> `Examples` -> `PGAArcade Replay MKR Vidor 4000`).
+In the Arduino IDE, open up the example `Replay_Boot` (listed under menu `File` -> `Examples` -> `FPGAArcade Replay MKR Vidor 4000`).
 Proceed to `Upload` (under menu `Sketch`) to flash the Replay firmware (make sure the MKR Vidor 4000 is connected via USB).
 
 ### How to load an FPGA core
 
 When the firmware starts up, it looks for `replay.ini` on the SDCARD.  
-If there is no SDCARD, or if it fails to find the .ini file, the firmware will display an red/green checkered background, and an error message:
+If there is no SDCARD, or if it fails to find the .ini file, the firmware will display a red/green checkered background, and a warning message:
 
 ![no_sdcard]
 
@@ -53,7 +53,7 @@ Archive:  loader_V4_20210531_2203_3676175.zip
 --------          -------  ---                            -------
  3024018          1206791  60%                            6 files
  ```
- Insert the SDCARD in SD Proto/MEM Shield, and restart the Vidor.  
+ Insert the SDCARD in the SD/MEM Shield, and restart the Vidor.  
  If successful it should show something like this:  
  
  ![loader]
